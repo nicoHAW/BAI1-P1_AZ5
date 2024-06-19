@@ -14,11 +14,11 @@ import java.util.*;
 /**
  * CardProcessor printing cards in reverse order - see task
  * 
- * @author   (your name(s)) 
- * @version  (a version number or a date)
+ * @author   Nico Pätzel
+ * @version  Version 1 [18.06.2024]
  */
 public class CardProcessor {
-    
+
     /**
      * Die Methode reverseOrder() zieht solange Karten von einem Kartenstapel
      * bis eine gewünschte Karte gezogen wird
@@ -39,8 +39,39 @@ public class CardProcessor {
     // HHH      HHH   III   EEEEEEEEEEEE   RRR     RRR         <<<                                   !!!
     // HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR         <<<                                  !!!
     //
-    // Fügen Sie hier Ihren Code ein
-    // bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
-    // ...
-    
+
+    public void reversedOrder(Deck deck, Card lastCard, boolean dbgOutputEnable) {
+        Card drawnCard;
+
+        Stack<Card> cardStack = new Stack<>();
+
+        System.out.printf("##### Karten Gezogen #####\n");
+        
+        // draw cards and push to Stack (as long as drawn card is not equal to lastCard) 
+        do {
+            drawnCard = deck.deal();
+            cardStack.push(drawnCard);
+            
+            //opens print method if trues
+            if (dbgOutputEnable) {
+                printCards(drawnCard, lastCard);
+            } 
+        } while (!drawnCard.equals(lastCard));
+        
+        
+        System.out.printf("\n\n##### Karten Reversed #####\n");
+     // pull from Stack
+        while (!cardStack.isEmpty()) {
+            System.out.printf("%s", cardStack.pop());
+        }
+
+    }//method reversedOrder
+
+    void printCards(Card printDrawnCard, Card printLastCard) {
+
+        System.out.printf("%s", printDrawnCard);
+        //System.out.printf("Gewünschte Karte %s\n", printLastCard);
+    }
+
+
 }//class

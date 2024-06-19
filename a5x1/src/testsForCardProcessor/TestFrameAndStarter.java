@@ -82,6 +82,11 @@ public class TestFrameAndStarter {
         //----------------------------------------------------------------------// "MARKIERUNG" ;-)
         // Ab hier dürfen Sie eigene Tests ergänzen
         
+        System.out.println("##### NICOS TESTS HIER ######\n");
+        final Deck myDeck = new Deck();
+        final CardProcessor testCardProcessor = new CardProcessor();
+        testCardProcessor.reversedOrder(myDeck, CJ, true);
+        
     }//method()
     
 }//class

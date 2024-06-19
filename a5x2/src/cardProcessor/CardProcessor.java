@@ -12,8 +12,8 @@ import java.util.*;
 /**
  * CardProcessor removing duplicates - see task
  * 
- * @author   (your name(s)) 
- * @version  (a version number or a date)
+ * @author   Nico Pätzel 
+ * @version  Version 0.1 [18.06.2024]
  */
 public class CardProcessor {
     
@@ -38,8 +38,20 @@ public class CardProcessor {
     // HHH      HHH   III   EEEEEEEEEEEE   RRR     RRR         <<<                                   !!!
     // HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR         <<<                                  !!!
     //
-    // Fügen Sie hier Ihren Code ein
-    // bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
-    // ...
+
+public Card [] removeDuplicates(Card... cards) {
+    //Card[] cleared = new Card[cards.length];
+    
+    HashSet<Card> cardSet = new HashSet<>();
+    
+    for (int i = 0; i<cards.length; i++) {
+        cardSet.add(cards[i]);
+    }
+    
+    cardSet.toArray(cards);
+    
+    return cards;
+}
+    
     
 }//class
