@@ -40,17 +40,31 @@ public class CardProcessor {
     //
 
 public Card [] removeDuplicates(Card... cards) {
+ // Validation
+    assert cards != null : "Error: There is no card - please transmit cards or a array o cards";
+    for (int i = 0; i<cards.length-1; i++) {
+        assert cards[i] != null : "Error: There is no card at position "+i+1+" - please transmit cards or a array o cards";
+    } //for
+    
     //Card[] cleared = new Card[cards.length];
     
-    HashSet<Card> cardSet = new HashSet<>();
+    Set<Card> cardSet = new HashSet<>();
+    
+    /*Test TreeSet
+     * Set<Card> cardSet = new TreeSet<>();
+     * -> One card is missing
+     */
+    
     
     for (int i = 0; i<cards.length; i++) {
         cardSet.add(cards[i]);
-    }
+    } // for
     
-    cardSet.toArray(cards);
+    //New array to sort cleaned Card set to.
+   Card[] cleanedCards = new Card[cardSet.size()];
+   cardSet.toArray(cleanedCards);
     
-    return cards;
+    return cleanedCards;
 }
     
     

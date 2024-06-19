@@ -73,15 +73,23 @@ public class TestFrameAndStarter {
         
         // Anfang des eigentlichen Tests
         //==============================
-        /*
+        
         final Card[] testCase = { CJ, DJ, DJ, C9, HQ, D2, HQ };
         System.out.println( Arrays.toString( testCase ) );
         final CardProcessor cardProcessor = new CardProcessor();
         final Card[] result = cardProcessor.removeDuplicates( testCase );
         System.out.println( Arrays.toString( result ) );
-        */
+        
         //----------------------------------------------------------------------// "MARKIERUNG" ;-)
-        // Ab hier dürfen Sie eigene Tests ergänzen
+
+        System.out.println("\n\n##### NICOS TESTS HIER ######\n");
+        Card[] testCards = { D2, DJ, DJ, C9, HQ, D2, HQ, D2, D2, D2, D2, SA };
+        final CardProcessor testCardProcessor = new CardProcessor();
+        final Card[] noDuplicates = testCardProcessor.removeDuplicates( testCards );
+        System.out.println( Arrays.toString( noDuplicates ) );
+        
+
+        
         
     }//method()
     
