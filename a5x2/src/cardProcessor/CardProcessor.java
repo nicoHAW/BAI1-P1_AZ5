@@ -61,8 +61,7 @@ public Card [] removeDuplicates(Card... cards) {
     } // for
     
     //New array to sort cleaned Card set to.
-   Card[] cleanedCards = new Card[cardSet.size()];
-   cardSet.toArray(cleanedCards);
+    Card[] cleanedCards = cardSet.toArray(new Card[cardSet.size()]);
     
     return cleanedCards;
 }
