@@ -74,18 +74,20 @@ public class TestFrameAndStarter {
         
         // Anfang des eigentlichen Tests
         //==============================
-        /*
+        
         final Deck deck = new Deck();
         final CardProcessor cardProcessor = new CardProcessor();
-        cardProcessor.reverseOrder( deck, CJ, true );
-        */
+        cardProcessor.reversedOrder( deck, CJ, true );
+        
         //----------------------------------------------------------------------// "MARKIERUNG" ;-)
         // Ab hier dürfen Sie eigene Tests ergänzen
-        
-        System.out.println("##### NICOS TESTS HIER ######\n");
+      
+        System.out.println("\n\n##### NICOS TESTS HIER ######\n");
         final Deck myDeck = new Deck();
         final CardProcessor testCardProcessor = new CardProcessor();
-        testCardProcessor.reversedOrder(myDeck, CJ, true);
+        testCardProcessor.reversedOrder(myDeck, CJ, false);
+        
+        
         
     }//method()
     

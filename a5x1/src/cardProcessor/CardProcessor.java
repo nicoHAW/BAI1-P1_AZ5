@@ -40,38 +40,71 @@ public class CardProcessor {
     // HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR         <<<                                  !!!
     //
 
-    public void reversedOrder(Deck deck, Card lastCard, boolean dbgOutputEnable) {
-        Card drawnCard;
+    /**
+     * Draws a new Card from a given deck until drawn card is equal to the wished card. 
+     * Puts cards on a stack and returns stack in reversed order.
+     * 
+     * @param deck : Transmit a Datatype Deck - Deck can't be null. 
+     * @param lastCard : Transmit a Datatype Card - LastCard can't be null.
+     * @param dbgOutputEnable : Transmit a boolean true or false to activate or deactivate if drawn card will be given out - default: true 
+     */
+    public void reversedOrder(Deck deck, Card lastCard, boolean dbgOutputEnable) {      
 
+        // Validation
+        assert deck != null : "Error: There is no deck - please transmit a deck";
+        assert lastCard != null : "There is no Card - please transmit a Card";
+
+        //----- VARIABLES -----
+        Card drawnCard;
         Stack<Card> cardStack = new Stack<>();
 
+
         System.out.printf("##### Karten Gezogen #####\n");
-        
+
+        //----- STATEMENTS / METHODS -----
         // draw cards and push to Stack (as long as drawn card is not equal to lastCard) 
         do {
             drawnCard = deck.deal();
             cardStack.push(drawnCard);
-            
-            //opens print method if trues
+
+            //opens print method if true
             if (dbgOutputEnable) {
                 printCards(drawnCard, lastCard);
             } 
         } while (!drawnCard.equals(lastCard));
-        
-        
+
+
         System.out.printf("\n\n##### Karten Reversed #####\n");
-     // pull from Stack
+        // After drawn lastCard pull from Stack
         while (!cardStack.isEmpty()) {
             System.out.printf("%s", cardStack.pop());
         }
 
     }//method reversedOrder
 
+    // Method - overloads reversedOrder in case no boolean is given.
+    public void reversedOrder(Deck deck, Card lastCard) {
+
+        // Validation
+        assert deck != null : "Error: There is no deck - please transmit a deck" ;
+        assert lastCard != null : "There is no Card - please transmit a Card" ;
+        
+        //Variables
+        boolean dbgOutputEnable = true; 
+        
+        //acitvate method with default boolean = true
+        reversedOrder(deck, lastCard, dbgOutputEnable);
+        
+    } // method - reversed
+
+    //----- HELP METHODS -----
+
+    //Method - to print given Cards
     void printCards(Card printDrawnCard, Card printLastCard) {
 
         System.out.printf("%s", printDrawnCard);
         //System.out.printf("Gewünschte Karte %s\n", printLastCard);
-    }
 
+    } //method print
 
 }//class
