@@ -92,6 +92,87 @@ public class TestFrameAndStarter {
         //----------------------------------------------------------------------// "MARKIERUNG" ;-)
         // Ab hier dürfen Sie eigene Tests ergänzen
         
+        
+        System.out.println("----- TESTS NICO -----");
+        final Deck deck = new Deck();
+        
+        Card cardOne = deck.deal();
+        Card cardTwo = deck.deal();
+        Card cardThree = deck.deal();
+        Card cardFour = deck.deal();
+        Card cardFive = deck.deal();
+        Card cardSix = deck.deal();
+        
+        
+        System.out.println("----- KARTE 1 -----");
+        System.out.println("Karte = " + cardOne);
+        System.out.println("Rank = " + cardOne.getRank());
+        System.out.println("Suit = " + cardOne.getSuit());
+        
+        System.out.println("----- KARTE 2 -----");
+        System.out.println("Karte = " + cardTwo);
+        System.out.println("Rank = " + cardTwo.getRank());
+        System.out.println("Suit = " + cardTwo.getSuit());
+        
+        System.out.println("----- KARTE 3 -----");
+        System.out.println("Karte = " + cardThree);
+        System.out.println("Rank = " + cardThree.getRank());
+        System.out.println("Suit = " + cardThree.getSuit());
+        
+        System.out.println("----- KARTE 4 -----");
+        System.out.println("Karte = " + cardFour);
+        System.out.println("Rank = " + cardFour.getRank());
+        System.out.println("Suit = " + cardFour.getSuit());
+        
+        System.out.println("----- KARTE 5 -----");
+        System.out.println("Karte = " + cardFive);
+        System.out.println("Rank = " + cardFive.getRank());
+        System.out.println("Suit = " + cardFive.getSuit());
+        
+        System.out.println("----- KARTE 6 -----");
+        System.out.println("Karte = " + cardSix);
+        System.out.println("Rank = " + cardSix.getRank());
+        System.out.println("Suit = " + cardSix.getSuit());
+        
+        
+        System.out.println("----- Liste -----");
+
+        List<Card> cardList = new ArrayList<>();
+        cardList.add(cardOne);
+        cardList.add(cardTwo);
+        cardList.add(cardThree);
+        cardList.add(cardFour);
+        cardList.add(cardFive);
+        cardList.add(cardSix);
+        
+        System.out.println(cardList.toString());
+        
+        
+        Rank cardOneRank = cardOne.getRank();
+        int cardOneRankVal = cardOneRank.value();
+        int cardOneRankOrdi = cardOneRank.ordinal();
+                
+        Suit cardOneSuit = cardOne.getSuit();
+        int cardOneSuiOrdi = cardOneSuit.ordinal();
+        
+        System.out.printf(""
+                + "Karte ist: %s\n"
+                + "Rank ist: %s \n"
+                + "Value von Rank ist: %d \n"
+                + "Ordinal von Rank ist: %d \n"
+                + "Suit ist: %s \n"
+                + "Ordinal von Suite ist: %s \n", 
+                cardOne, cardOneRank, cardOneRankVal, cardOneRankOrdi, cardOneSuit, cardOneSuiOrdi );
+
+        
+        System.out.println("----- Sortieren -----");
+        
+       final Comparator<Card> usualOrder = new cardComparator.UsualOrder();
+       Collections.sort( cardList, usualOrder );
+
+       System.out.println(cardList.toString());
+
+        
     }//method()
     
 }//class
