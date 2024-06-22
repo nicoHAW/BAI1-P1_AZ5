@@ -6,6 +6,7 @@ import static cards.Card.Constant.*;
 import cards.*;
 import cards.Card.*;
 
+import java.util.Collections;
 
 /**
  * Comparator for Cards defining "usual order"
@@ -40,6 +41,8 @@ public class UsualOrder implements Comparator<Card> {
         int rankResult;
         int suitResult;
 
+
+
         /*
         // firstCard 
         Rank firstCardRank = firstCard.getRank();
@@ -55,7 +58,7 @@ public class UsualOrder implements Comparator<Card> {
 
          */
         // Compare Ranks in order: highest First.
-        rankResult = secondCard.getRank().value() - firstCard.getRank().value();
+       // return rankResult = secondCard.getRank().value() - firstCard.getRank().value();
 
         // Compare Suites in order:
 
@@ -66,20 +69,44 @@ public class UsualOrder implements Comparator<Card> {
 
     }
 
+
+
+
+
+
     //---------- HELP METHODS ----------
+
+    private int ihelperOrder(Card givenCard) {
+
+        // firstCard Data
+        Rank cardRank = givenCard.getRank();
+        int cardRankValue = cardRank.value();
+        Suit cardSuit = givenCard.getSuit();
+
+        // Get factors for Ordinal
+        int cardSuiteFaktor = SuitOrder(cardSuit);
+
+        // Create a comparable number: Value of card + Factor for Suit
+
+        int cardValue = cardSuiteFaktor + cardRankValue;
+
+        return (cardValue);
+
+    }
+
 
     private int SuitOrder(Suit givenCard) {
 
         switch (givenCard) {
 
             case CLUB:     // Kreuz
-                return 4;
+                return 40;
             case SPADES:   // Pik
-                return 3;
+                return 30;
             case HEART:    // Herz
-                return 2;
+                return 20;
             case DIAMOND:  // Karo
-                return 1;
+                return 10;
             default:
                 return 0;
         }
