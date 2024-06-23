@@ -8,7 +8,9 @@ import static cards.Card.Constant.*;
 import cards.*;
 import cards.Card.*;
 import java.util.*;
-//import cardComparator.UsualOrder;
+
+
+import cardComparator.UsualOrder;
 import stuffBeginnersDontHaveToUnderstand.EnvironmentAnalyzer;
 import stuffBeginnersDontHaveToUnderstand.GivenCodeVersion;
 import stuffBeginnersDontHaveToUnderstand.Version;
@@ -76,7 +78,7 @@ public class TestFrameAndStarter {
         // Anfang des eigentlichen Tests
         //==============================
         
-        /*
+        
         final Deck deck = new Deck();
         final int randomNumber = 1+ (int)( 52*Math.random() );
         final List<Card> list = new ArrayList<Card>();
@@ -88,13 +90,16 @@ public class TestFrameAndStarter {
         System.out.println( list );
         Collections.sort( list, usualOrder );
         System.out.println( list );
-        */
+        
         //----------------------------------------------------------------------// "MARKIERUNG" ;-)
         // Ab hier dürfen Sie eigene Tests ergänzen
         
+        boolean nicosTest = false;
         
+        if (nicosTest) {
+            
         System.out.println("----- TESTS NICO -----");
-        final Deck deck = new Deck();
+       // final Deck deck = new Deck();
         
         Card cardOne = deck.deal();
         Card cardTwo = deck.deal();
@@ -167,11 +172,12 @@ public class TestFrameAndStarter {
         
         System.out.println("----- Sortieren -----");
         
-       final Comparator<Card> usualOrder = new cardComparator.UsualOrder();
+//       final Comparator<Card> usualOrder = new cardComparator.UsualOrder();
        Collections.sort( cardList, usualOrder );
 
        System.out.println(cardList.toString());
 
+        }
         
     }//method()
     
