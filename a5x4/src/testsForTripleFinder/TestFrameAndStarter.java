@@ -6,7 +6,7 @@ import cards.*;
 import stuffBeginnersDontHaveToUnderstand.EnvironmentAnalyzer;
 import stuffBeginnersDontHaveToUnderstand.GivenCodeVersion;
 import stuffBeginnersDontHaveToUnderstand.Version;
-//import tripleFinder.CardProcessor;
+import tripleFinder.CardProcessor;
 import tripleFinder.CardProcessor_I;
 
 
@@ -128,6 +128,15 @@ import tripleFinder.CardProcessor_I;
         */
         //----------------------------------------------------------------------// "MARKIERUNG" ;-)
         // Ab hier dürfen Sie eigene Tests ergänzen
+        
+        Deck deck = new Deck(); 
+        Card card = deck.deal();
+        
+        CardProcessor checkDrilling = new CardProcessor();
+        
+        checkDrilling.process(card);
+        
+        
         
     }//method()
     
