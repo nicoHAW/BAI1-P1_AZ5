@@ -49,6 +49,8 @@ public interface CardProcessor_I {
      * @return  der erste Drilling unmittebar nachdem er aufgetreten ist<br />
      *          und sonst null.
      */
+    
+    // Changed return from Object to List. 
     List process( final Card card );
     
     

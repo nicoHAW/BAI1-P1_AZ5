@@ -28,11 +28,11 @@ public class TestFrameAndStarter {
     final static private Version version = new Version( encodedVersion );
     static public String getDecodedVersion(){ return version.getDecodedVersion(); }
     // Obiges (ab VERSION) dient nur der Versionierung
-    
-    
-    
-    
-    
+
+
+
+
+
     /**
      * Die Methode {@link #main() testet die Lösung zur Aufgabe "remove duplicates" - siehe Aufgabenstellung.
      * Diese Methode darf bis zur "Markierung" NICHT geändert werden
@@ -42,7 +42,7 @@ public class TestFrameAndStarter {
      * @param unused wird nicht genutzt, aber "von Java eingefordert".
      */
     public static void main( final String... unused ) {
-        
+
         // print some information at start
         System.out.printf( "TestFrame information\n" );
         System.out.printf( "=====================\n" );
@@ -66,31 +66,36 @@ public class TestFrameAndStarter {
         System.out.printf( "\n\n" );
         //
         System.out.flush();
-        
-        
-        
-        
-        
+
+
+
+
+
         // Anfang des eigentlichen Tests
         //==============================
-        
+
         final Card[] testCase = { CJ, DJ, DJ, C9, HQ, D2, HQ };
         System.out.println( Arrays.toString( testCase ) );
         final CardProcessor cardProcessor = new CardProcessor();
         final Card[] result = cardProcessor.removeDuplicates( testCase );
         System.out.println( Arrays.toString( result ) );
-        
+
         //----------------------------------------------------------------------// "MARKIERUNG" ;-)
 
-        System.out.println("\n\n##### NICOS TESTS HIER ######\n");
-        Card[] testCards = { D2, DJ, DJ, C9, HQ, D2, HQ, D2, D2, D2, D2, SA };
-        final CardProcessor testCardProcessor = new CardProcessor();
-        final Card[] noDuplicates = testCardProcessor.removeDuplicates( testCards );
-        System.out.println( Arrays.toString( noDuplicates ) );
-        
+        boolean nicosTest = false; //activates own tests by set to true
 
-        
-        
+        // runs tests only if nicosTest = true
+        if (nicosTest) {
+
+            System.out.println("\n\n##### NICOS TESTS HIER ######\n");
+            Card[] testCards = { D2, DJ, DJ, C9, HQ, D2, HQ, D2, D2, D2, D2, SA };
+            final CardProcessor testCardProcessor = new CardProcessor();
+            final Card[] noDuplicates = testCardProcessor.removeDuplicates( testCards );
+            System.out.println( Arrays.toString( noDuplicates ) );
+        }
+
+
+
     }//method()
-    
+
 }//class

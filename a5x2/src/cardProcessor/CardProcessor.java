@@ -16,7 +16,7 @@ import java.util.*;
  * @version  Version 0.1 [18.06.2024]
  */
 public class CardProcessor {
-    
+
     /**
      * Die Methode removeDuplicates() entfernt Doppelte aus den übergebenen Karten.
      * Welche Karte (von den mehrfach vorhandenen Karten) übrig bleibt ist egal.
@@ -39,32 +39,36 @@ public class CardProcessor {
     // HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR         <<<                                  !!!
     //
 
-public Card [] removeDuplicates(Card... cards) {
- // Validation
-    assert cards != null : "Error: There is no card - please transmit cards or a array o cards";
-    for (int i = 0; i<cards.length-1; i++) {
-        assert cards[i] != null : "Error: There is no card at position "+i+1+" - please transmit cards or a array o cards";
-    } //for
-    
-    //Card[] cleared = new Card[cards.length];
-    
-    Set<Card> cardSet = new HashSet<>();
-    
-    /*Test TreeSet
-     * Set<Card> cardSet = new TreeSet<>();
-     * -> One card is missing
-     */
-    
-    
-    for (int i = 0; i<cards.length; i++) {
-        cardSet.add(cards[i]);
-    } // for
-    
-    //New array to sort cleaned Card set to.
-    Card[] cleanedCards = cardSet.toArray(new Card[cardSet.size()]);
-    
-    return cleanedCards;
-}
-    
-    
+    public Card[] removeDuplicates(Card... cards) {
+        // ----- ASSERTS ----- 
+        assert cards != null : "Error: There is no card - please transmit cards or a array o cards";
+        for (int i = 0; i<cards.length-1; i++) {
+            assert cards[i] != null : "Error: There is no card at position "+i+1+" - please transmit cards or a array o cards";
+        } //for
+
+
+        // ----- SORT IN SET ----- 
+        Set<Card> cardSet = new HashSet<>();
+
+        for (Card tempCards : cards) {
+            cardSet.add(tempCards);
+        }
+
+        //Old for loop replaced by iterator
+        /*        for (int i = 0; i<cards.length; i++) {
+         *           cardSet.add(cards[i]);
+         *        } // for
+         */
+
+
+        // ----- SORT IN ARRAY ----- 
+        //Create Array cleanedCards and use toArray and create a new Array of Cards with size of CardSet.
+        Card[] cleanedCards = cardSet.toArray(new Card[cardSet.size()]);
+
+
+        // ----- RETURN ----- 
+        return cleanedCards;
+    }
+
+
 }//class

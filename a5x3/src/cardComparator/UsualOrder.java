@@ -12,7 +12,7 @@ import java.util.Collections;
  * Comparator for Cards defining "usual order"
  * 
  * @author   Nico Pätzel 
- * @version  Version 0.1 [22.06.2024]
+ * @version  Version 1.0 [24.06.2024]
  */
 // Klasse "UsualOrder"
 //
@@ -50,6 +50,7 @@ public class UsualOrder implements Comparator<Card> {
         assert firstCard != null: "please submit valid Card";
         assert secondCard != null: "please submit valid Card";
 
+        
         //  ----- COMPARE ----- 
         // Compare RanksHighest First.
         int rankResult = secondCard.getRank().value() - firstCard.getRank().value();
