@@ -34,26 +34,51 @@ import java.util.Collections;
 //
 import java.util.Comparator;
 
+/** 
+ * UsualOrder Comparator ONLY compares objects of the Data Type Card.
+ * Objects wil be compared and Ordered by Rank (descending) and by Suit
+ * Suit order: CLUB, SPADES, HEART, DIAMOND
+ */
+
 public class UsualOrder implements Comparator<Card> {
 
-    enum SuitOrder {
-        CLUB, SPADES, HEART, DIAMOND;
-    }
-    
+
     @Override
     public int compare(Card firstCard, Card secondCard) {
+        // ----- ASSERT ----- 
+        // checks if Cards are not null. 
+        assert firstCard != null: "please submit valid Card";
+        assert secondCard != null: "please submit valid Card";
 
-        // Compare Ranks in order: highest First.
-        
+        //  ----- COMPARE ----- 
+        // Compare RanksHighest First.
         int rankResult = secondCard.getRank().value() - firstCard.getRank().value();
-        int suitResult = secondCard.getSuit().ordinal() - firstCard.getSuit().ordinal();
-        
-        //int suitResult = SuitOrder(secondCard.getSuit()) - SuitOrder(secondCard.getSuit());
 
-        
+        //Compares Suites - uses a help method to change the given enum order. 
+        int suitResult = iHelperAdaptSuitOrder(secondCard.getSuit()) - iHelperAdaptSuitOrder(firstCard.getSuit()); 
+
         //Compares Ranks 
         if (rankResult == 0) {
             return suitResult;
         } else return rankResult;
-    }
-}
+    } // compare
+
+
+    //----- HELP METHOD -----
+    
+     // Changes the given enum order 
+    private int iHelperAdaptSuitOrder (Suit card) {
+        switch (card) {
+            case CLUB:
+                return 4;
+            case SPADES:
+                return 3;
+            case HEART:
+                return 2;
+            case DIAMOND:
+                return 1;
+            default:
+                return 0;
+        } //method adaptSuitOrder
+    } // method
+} // class
