@@ -4,6 +4,9 @@ package tripleFinder;
 
 import static cards.Card.*;
 import static cards.Card.Constant.*;
+
+import java.util.List;
+
 //
 import cards.*;
 import cards.Card.*;
@@ -46,7 +49,7 @@ public interface CardProcessor_I {
      * @return  der erste Drilling unmittebar nachdem er aufgetreten ist<br />
      *          und sonst null.
      */
-    Object process( final Card card );
+    List process( final Card card );
     
     
     /**

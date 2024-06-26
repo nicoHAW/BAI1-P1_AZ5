@@ -17,30 +17,30 @@ import tripleFinder.CardProcessor_I;
  *          P1@Hamburg-UAS.eu 
  * @version {@value #encodedVersion} 
  */
- public class TestFrameAndStarter {
-     //
-     //--VERSION:-------------------------------#---vvvvvvvvv---vvvv-vv-vv--vv
-     //  ========                               #___~version~___YYYY_MM_DD__dd_
-     final static private long encodedVersion = 2___00002_003___2023_05_19__01L;
-     //-----------------------------------------#---^^^^^-^^^---^^^^-^^-^^--^^
-     final static private Version version = new Version( encodedVersion );
-     static public String getDecodedVersion(){ return version.getDecodedVersion(); }
-     // Obiges (ab VERSION) dient nur der Versionierung
-     
-     
-     
-     
-     
-     /**
-      * Die Methode {@link #main() testet die Lösung zur Aufgabe "TripleFinder" - siehe Aufgabenstellung.
-      * Diese Methode darf bis zur "Markierung" NICHT geändert werden
-      * außer, dass Sie "den Kommentar vor den letzten Statements" entfernen müssen.
-      * Wohl aber dürfen Sie am Ende/nach der Markierung eigene Tests ergänzen.
-      * 
-      * @param unused wird nicht genutzt, aber "von Java eingefordert".
-      */
+public class TestFrameAndStarter {
+    //
+    //--VERSION:-------------------------------#---vvvvvvvvv---vvvv-vv-vv--vv
+    //  ========                               #___~version~___YYYY_MM_DD__dd_
+    final static private long encodedVersion = 2___00002_003___2023_05_19__01L;
+    //-----------------------------------------#---^^^^^-^^^---^^^^-^^-^^--^^
+    final static private Version version = new Version( encodedVersion );
+    static public String getDecodedVersion(){ return version.getDecodedVersion(); }
+    // Obiges (ab VERSION) dient nur der Versionierung
+
+
+
+
+
+    /**
+     * Die Methode {@link #main() testet die Lösung zur Aufgabe "TripleFinder" - siehe Aufgabenstellung.
+     * Diese Methode darf bis zur "Markierung" NICHT geändert werden
+     * außer, dass Sie "den Kommentar vor den letzten Statements" entfernen müssen.
+     * Wohl aber dürfen Sie am Ende/nach der Markierung eigene Tests ergänzen.
+     * 
+     * @param unused wird nicht genutzt, aber "von Java eingefordert".
+     */
     public static void main( final String... unused ){
-        
+
         // print some information at start
         System.out.printf( "TestFrame information\n" );
         System.out.printf( "=====================\n" );
@@ -64,21 +64,21 @@ import tripleFinder.CardProcessor_I;
         System.out.printf( "\n\n" );
         //
         System.out.flush();
-        
-        
-        
-        
-        
+
+
+
+
+
         // Anfang des eigentlichen Tests
         //==============================
-        /*
+        
         final boolean dbgOutputEnable = true;
-        
-        
+
+
         System.out.printf( "ACHTUNG!: Es folgen zufallsbasierte Tests.\n" );
         System.out.printf( "\n\n" );
-        
-        
+
+
         System.out.printf( "Test1: Ziehe solange Karten bis der 1.Drilling aufgetreten ist.\n" );
         System.out.printf( "======\n" );
         final CardProcessor_I cp = new CardProcessor();
@@ -92,8 +92,8 @@ import tripleFinder.CardProcessor_I;
         if( dbgOutputEnable )  System.out.printf( "\n==>> " );
         System.out.printf( "%s\n", result );
         System.out.printf( "\n\n" );
-        
-        
+
+
         System.out.printf( "Test2:\n" );
         System.out.printf( "======\n" );
         cp.reset();
@@ -110,8 +110,8 @@ import tripleFinder.CardProcessor_I;
         if( dbgOutputEnable )  System.out.printf( "\n==>> " );
         System.out.printf( "%s\n", result );
         System.out.printf( "\n\n" );
-        
-        
+
+
         System.out.printf( "Test3:\n" );
         System.out.printf( "======\n" );
         cp.reset();
@@ -125,19 +125,24 @@ import tripleFinder.CardProcessor_I;
         }//while
         if( dbgOutputEnable )  System.out.printf( "\n==>> " );
         System.out.printf( "%s\n", result );
-        */
+         
         //----------------------------------------------------------------------// "MARKIERUNG" ;-)
         // Ab hier dürfen Sie eigene Tests ergänzen
-        
-        Deck deck = new Deck(); 
-        Card card = deck.deal();
-        
-        CardProcessor checkDrilling = new CardProcessor();
-        
-        checkDrilling.process(card);
-        
-        
-        
+
+        boolean nicosTest = false; 
+        if (nicosTest) {
+            
+            CardProcessor checkDrilling = new CardProcessor();
+
+            for (int i = 0; i<5 ; i++) {
+                
+            Deck nicosDeck = new Deck(); 
+            Card card = nicosDeck.deal();
+            checkDrilling.process(card);
+            }
+            
+        } // nicosTest
+
     }//method()
-    
+
 }//class

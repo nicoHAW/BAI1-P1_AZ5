@@ -6,57 +6,56 @@ import cards.Card.*;
 import cards.*;
 
 public class CardProcessor implements CardProcessor_I {
-     
+    // variables
+    
+    Map<Rank, List> cardMap = new HashMap<>();
+
     //----- CONSTRUCTOR -----
     public CardProcessor() {
     }
 
     //----- METHODS -----
-    @Override
-    public Object process(Card card) {
 
-        boolean testAusgabe = true;
-        
+    /**
+     * CardProcessor takes Object of DataType Card and collects cards as long as there are three of the same Rank. 
+     *@param 
+     *@return
+     *@exception
+     */
+    @Override
+    public List<Card> process(Card card) {
+
         List<Card> cardList;
-        Map<Rank, List> cardMap = new HashMap<>();
-        
-        
-        
-        
-        
-        Rank cardRank = card.getRank();
-        
-        if (cardMap.containsKey(cardRank)) {
-            cardList.add(card);
+
+        //Tests
+        assert card != null : "Bitte gültige Übergeben";
+
+        // Get CardRank
+        Rank cardRank = card.getRank();        
+
+        /*
+         * If cardMap doesn't has a Key with Current Rank create a new ArrayList and put
+         * ArrayList with Key of current cardRank in HaspMap
+         */
+
+        if (!this.cardMap.containsKey(cardRank)) {
+            cardList = new ArrayList<Card>();
+            this.cardMap.put(cardRank, cardList);            
         } else {
-            cardList = new ArrayList<>();
-            cardMap.put(cardRank, cardList);
-        }
+            cardList = this.cardMap.get(cardRank);
+        } //fi else
+
         cardList.add(card);
 
-        
-        if(testAusgabe) {
-            System.out.println("cardListe = " + cardList);
-            System.out.println("cardListe toString = " + cardList.toString());
-            System.out.println("cardListe Index = " + cardList.size());
-            System.out.println("cardMap = " + cardMap);
-            System.out.println("cardMap String = " + cardMap.toString());
-            System.out.println("cardMap Size = " + cardMap.size());
-            System.out.println("cardMap Rank = " + cardMap.get(cardRank));
-            
-        }
-       
-
-        
-
-
-                return null;
-    }
+        if (cardList.size() == 3) {    
+            return cardList;
+        } return null;
+    } // fi
 
     @Override
     public void reset() {
-
-    }
+        this.cardMap.clear();   
+    } //reset
 
     //----- Help Method -----
 
