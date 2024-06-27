@@ -51,7 +51,7 @@ public interface CardProcessor_I {
      */
     
     // Changed return from Object to List. 
-    List process( final Card card );
+    Object process( final Card card );
     
     
     /**

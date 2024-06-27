@@ -14,15 +14,20 @@ import cards.*;
  */
 public class CardProcessor implements CardProcessor_I {
     // ----- FELD VARIABLES -----
-
-    private Map<Rank, List> cardMap;
-
+    private Map<Rank, Collection<Card>> cardMap;
+    
+    
+    
+    
     //----- CONSTRUCTOR -----
     public CardProcessor() {
-        this.cardMap = new HashMap<>();
+        this.cardMap = new HashMap<Rank, Collection<Card>>();
     }
 
 
+    
+    
+    
     //----- METHODS -----
 
     /**
@@ -32,16 +37,14 @@ public class CardProcessor implements CardProcessor_I {
      *@exception Returns error if given card is null. 
      */
     @Override
-    public List<Card> process(Card card) {
-
-        List<Card> cardList;
-
+    public Collection<Card> process(Card card) {
         //----- ASSERT -----
-        assert card != null : "Bitte gültige Übergeben";
+        assert card != null : "Bitte gültige Karte Übergeben";
 
+        
 
         //----- STATEMENTS -----
-        Rank cardRank = card.getRank();        
+        final Rank cardRank = card.getRank();        
 
         /* MapCheck
          * -----------
@@ -53,6 +56,19 @@ public class CardProcessor implements CardProcessor_I {
          * If cardMap doesn't has a Key with Current Rank create a new ArrayList and put
          * ArrayList with Key of current cardRank in HaspMap
          */
+        
+        Collection<Card> cardList = this.cardMap.get(cardRank);
+        if( cardList==null ) {
+            cardList = new ArrayList<Card>();
+            this.cardMap.put(cardRank, cardList);
+        }
+        cardList.add(card);
+        if (cardList.size() == 3) {    
+            return this.cardMap.remove(cardRank);
+        }
+        return null;
+        
+        /*
         if (!this.cardMap.containsKey(cardRank)) { 
             cardList = new ArrayList<Card>();
             this.cardMap.put(cardRank, cardList);            
@@ -67,7 +83,7 @@ public class CardProcessor implements CardProcessor_I {
         if (cardList.size() == 3) {    
             return cardList;
         } return null;
-
+        */
     } // method
 
     // CLEAR

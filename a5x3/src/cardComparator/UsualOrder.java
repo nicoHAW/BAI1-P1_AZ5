@@ -34,6 +34,8 @@ import java.util.Collections;
 //
 import java.util.Comparator;
 
+import cardProcessor.CardProcessor;
+
 /** 
  * UsualOrder Comparator ONLY compares objects of the Data Type Card.
  * Objects wil be compared and Ordered by Rank (descending) and by Suit
@@ -51,6 +53,12 @@ public class UsualOrder implements Comparator<Card> {
         assert secondCard != null: "please submit valid Card";
 
         
+        int tmp = secondCard.getRank().value() - firstCard.getRank().value();
+        if( tmp != 0 )  return tmp;
+        //
+        tmp = iHelperAdaptSuitOrder(secondCard.getSuit()) - iHelperAdaptSuitOrder(firstCard.getSuit()); 
+        return tmp;
+        /*
         //  ----- COMPARE ----- 
         // Compare RanksHighest First.
         int rankResult = secondCard.getRank().value() - firstCard.getRank().value();
@@ -62,6 +70,7 @@ public class UsualOrder implements Comparator<Card> {
         if (rankResult == 0) {
             return suitResult;
         } else return rankResult;
+        */
     } // compare
 
 
@@ -82,4 +91,11 @@ public class UsualOrder implements Comparator<Card> {
                 return 0;
         } //method adaptSuitOrder
     } // method
+    
+ // ----- STANDARD METHODS ----- 
+    @Override
+    public String toString() {
+        return String.format( "[< %s >: ]", UsualOrder.class.getSimpleName());
+    }
+    
 } // class

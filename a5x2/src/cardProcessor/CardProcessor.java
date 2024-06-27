@@ -27,17 +27,6 @@ public class CardProcessor {
      * 
      * @return          die Karten befreit von Doppelten.
      */
-    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRR          <<<                                  !!!
-    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRRR        <<<                                   !!!
-    // HHH      HHH   III   EEE            RRR      RRR       <<<                                    !!!
-    // HHH      HHH   III   EEE            RRR      RRR      <<<                                     !!!
-    // HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRRR      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
-    // HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRR       <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
-    // HHH      HHH   III   EEE            RRR   RRR         <<<                                     !!!
-    // HHH      HHH   III   EEE            RRR    RRR         <<<
-    // HHH      HHH   III   EEEEEEEEEEEE   RRR     RRR         <<<                                   !!!
-    // HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR         <<<                                  !!!
-    //
 
     public Card[] removeDuplicates(Card... cards) {
         // ----- ASSERTS ----- 
@@ -63,7 +52,7 @@ public class CardProcessor {
 
         // ----- SORT IN ARRAY ----- 
         //Create Array cleanedCards and use toArray and create a new Array of Cards with size of CardSet.
-        Card[] cleanedCards = cardSet.toArray(new Card[0]);
+        final Card[] cleanedCards = cardSet.toArray(new Card[0]);
 
 
         // ----- RETURN ----- 
