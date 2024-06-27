@@ -76,5 +76,9 @@ public class CardProcessor implements CardProcessor_I {
         this.cardMap.clear();   
     } //reset
 
-
+    // ----- STANDARD METHODS ----- 
+    @Override
+    public String toString() {
+        return String.format( "[< %s >: Map = %s ]", CardProcessor.class.getSimpleName(), this.cardMap.toString());
+    }
 }

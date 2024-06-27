@@ -8,6 +8,7 @@ import static cards.Card.Constant.*;
 import cards.*;
 import cards.Card.*;
 import java.util.*;
+import java.util.jar.Attributes.Name;
 
 
 
@@ -28,16 +29,16 @@ public class CardProcessor {
      * @param lastCard          die gewünschte Karte, die die Ziehung beendet.
      * @param dbgOutputEnable   true schaltet Kontrollausgabe an und false aus.
      */
-    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRR          <<<                                  !!!
-    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRRR        <<<                                   !!!
+    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRR           <<<                                  !!!
+    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRR         <<<                                   !!!
     // HHH      HHH   III   EEE            RRR      RRR       <<<                                    !!!
     // HHH      HHH   III   EEE            RRR      RRR      <<<                                     !!!
     // HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRRR      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
     // HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRR       <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
-    // HHH      HHH   III   EEE            RRR   RRR         <<<                                     !!!
-    // HHH      HHH   III   EEE            RRR    RRR         <<<
-    // HHH      HHH   III   EEEEEEEEEEEE   RRR     RRR         <<<                                   !!!
-    // HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR         <<<                                  !!!
+    // HHH      HHH   III   EEE            RRR    RRR        <<<                                     !!!
+    // HHH      HHH   III   EEE            RRR     RRR        <<<                                    !!!
+    // HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR        <<<                                   !!!
+    // HHH      HHH   III   EEEEEEEEEEEE   RRR       RRR        <<<                                  !!!
     //
 
     /**
@@ -111,5 +112,14 @@ public class CardProcessor {
         //System.out.printf("Gewünschte Karte %s\n", printLastCard);
 
     } //method
+    
+    //-----  -----
+    
+ // ----- STANDARD METHODS ----- 
+    @Override
+    public String toString() {
+        return String.format( "[< %s >: ]", CardProcessor.class.getSimpleName());
+    }
+    
 
 }//class

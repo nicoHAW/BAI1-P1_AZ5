@@ -92,8 +92,6 @@ public class TestFrameAndStarter {
         testCardProcessor.reversedOrder(myDeck, CJ, false);
         }
         
-        
-        
     }//method()
     
 }//class

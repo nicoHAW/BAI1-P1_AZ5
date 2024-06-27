@@ -69,6 +69,10 @@ public class CardProcessor {
         // ----- RETURN ----- 
         return cleanedCards;
     }
-
+// ----- STANDARD METHODS ----- 
+    @Override
+    public String toString() {
+        return String.format( "[< %s >: ]", CardProcessor.class.getSimpleName());
+    }
 
 }//class
