@@ -63,7 +63,7 @@ public class CardProcessor {
 
         // ----- SORT IN ARRAY ----- 
         //Create Array cleanedCards and use toArray and create a new Array of Cards with size of CardSet.
-        Card[] cleanedCards = cardSet.toArray(new Card[cardSet.size()]);
+        Card[] cleanedCards = cardSet.toArray(new Card[0]);
 
 
         // ----- RETURN ----- 
