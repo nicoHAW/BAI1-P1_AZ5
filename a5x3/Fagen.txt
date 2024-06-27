@@ -1,4 +1,4 @@
 Problem: Wie kann ich nach einer zweiten Priorität sortieren? 
 
-- Ausprobiert: mit einem faktor für den Rank. 
+- Ausprobiert: mit einem Faktor für den Rank. 
 - Mit If-Anweisung: falls Rank = 0, dann gib Result für Suit aus.
