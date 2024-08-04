@@ -1,0 +1,1 @@
+P1 :  (Simple) HashMap (Implementation-Demo) based on fixed sized array (as corresponding counterpart to HashSet)
